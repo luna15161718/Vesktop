@@ -1,5 +1,5 @@
 diff --git a/src/process/index.js b/src/process/index.js
-index 389b0845256a34b4536d6da99edb00d17f13a6b4..f17a0ac687e9110ebfd33cb91fd2f6250d318643 100644
+index f445024f14ecfe5ee0eb70fe42535591c76838dc..e37299dcf12366896d04690773bf0474629112da 100644
 --- a/src/process/index.js
 +++ b/src/process/index.js
 @@ -5,8 +5,20 @@ import fs from 'node:fs';
@@ -25,3 +25,12 @@ index 389b0845256a34b4536d6da99edb00d17f13a6b4..f17a0ac687e9110ebfd33cb91fd2f625
  
  import * as Natives from './native/index.js';
  const Native = Natives[process.platform];
+@@ -38,7 +50,7 @@ export default class ProcessServer {
+       const path = _path.toLowerCase().replaceAll('\\', '/');
+       const toCompare = [];
+       const splitPath = path.split('/');
+-      for (let i = 1; i < splitPath.length; i++) {
++      for (let i = 1; i <= splitPath.length; i++) {
+         toCompare.push(splitPath.slice(-i).join('/'));
+       }
+ 
